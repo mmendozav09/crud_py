@@ -1,0 +1,53 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>index</title>
+    <link rel="stylesheet" href="{% static '/bootstrap.min.css' %}">
+  </head>
+  <body>
+    
+    <div class="container">
+
+        <a href="{% url 'aplication:create'%}" class="btn btn-outline-dark mt-5">Crear Nuevo</a>
+
+        <table class="table table-bordered table-info mt-5 text-center">
+        <thead>
+            <tr>
+            <th>Id</th>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Telefono</th>
+            <th>Email</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for  contacto in contactos  %}
+            <tr>
+              <th>{{ contacto.id}}</th>
+              <td>{{ contacto.nombre}}</td>
+              <td>{{ contacto.apellido}}</td>
+              <td>{{ contacto.telefono}}</td>
+              <td>{{ contacto.email}}</td>
+              <td>
+                  <a href="{% url 'aplication:detail' contacto.id  %}" class="btn btn-danger m-1">Ver mas</a>
+                  <a href="{% url 'aplication:update' contacto.id %}" class="btn btn-success m-1">Editar</a>
+                  <a href="{% url 'aplication:delete' contacto.id %}" class="btn btn-primary m-1">Eliminar</a>
+              </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+        </table>
+
+
+    </div>
+
+
+  </body>
+</html>
+
+
+

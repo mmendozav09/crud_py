@@ -1,0 +1,32 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>index</title>
+    <link rel="stylesheet" href="{% static '/bootstrap.min.css' %}">
+  </head>
+  <body>
+    
+    <div class="container mt-5">
+
+        <p> {{detail_contacto.id }}</p>
+        <p>{{ detail_contacto.nombre }}</p>
+        <p>{{detail_contacto.apellido }}</p>
+        <p>{{ detail_contacto.telefono }}</p>
+        <p>{{detail_contacto.email }}</p>
+
+        <a class="btn btn-outline-secondary" href="{% url 'aplication:inicio'%}">Regresar Atras</a>
+
+    </div>
+
+  </body>
+</html>
+
+
+
+
+
+
